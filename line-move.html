@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        canvas{
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="400" height="400">
+        <span>您的浏览器不支持canvas</span>
+    </canvas>
+    <script>
+        var oc = document.getElementById('c1');
+
+        var Ogc = oc.getContext('2d');
+
+        oc.onmousedown = function(ev){
+
+            console.log('down');
+            var ev = ev || window.ev;
+            Ogc.moveTo(ev.clientX - oc.offsetLeft,ev.clientY - oc.offsetTop);
+            document.onmousemove = function(ev){
+                console.log('move');
+                var ev = ev || window.ev;
+                Ogc.lineTo(ev.clientX - oc.offsetLeft,ev.clientY - oc.offsetTop);
+                Ogc.stroke();
+            }
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+
+    </script>
+</body>
+</html>

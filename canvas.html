@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        canvas{
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="oc" height="400" width="400">
+        <span>您的浏览器不支持canvas</span>
+
+    </canvas>
+    <script>
+        window.onload = function(){
+            var oc = document.getElementById('oc');
+            console.log(oc);
+            var Ogc = oc.getContext('2d');
+            //Ogc.fillRect(50,50,50,50);
+            Ogc.save();
+            Ogc.fillStyle = 'red';
+            Ogc.beginPath();
+            Ogc.moveTo(100,100);
+            //Ogc.lineTo(200,200);
+            Ogc.lineTo(200,200);
+            Ogc.lineTo(300,200);
+            Ogc.closePath();
+            Ogc.fill();
+            Ogc.restore();
+            //Ogc.clearRect(0,0,oc.width,oc.height);
+
+            Ogc.beginPath();
+            Ogc.moveTo(100,200);
+            //Ogc.lineTo(200,200);
+            Ogc.lineTo(200,300);
+            Ogc.lineTo(300,300);
+            Ogc.closePath();
+            Ogc.fill();
+        }
+
+    </script>
+</body>
+</html>
