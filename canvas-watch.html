@@ -28,6 +28,8 @@
             var y = 200;
             var r = 150;
 
+            // 每次重新绘制画布
+            Ogc.clearRect(0,0,oc.width,oc.height);
             // 获取时间
             var oDate = new Date();
             var aHours = oDate.getHours();
@@ -103,9 +105,7 @@
         }
         fn();
         // 用定时器运动起来
-        setInterval(function(){
-            fn();
-        },1000)
+        setInterval(fn,1000)
     </script>
 </body>
 </html>
