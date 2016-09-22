@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        canvas{
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="400" height="400">
+        <span>您的浏览器不支持canvas</span>
+    </canvas>
+    <script>
+        var oc = document.getElementById('c1');
+
+        var Ogc = oc.getContext('2d');
+        var num = 0;
+        Ogc.fillRect(0,0,100,100);
+        setInterval(function(){
+            num++;
+            Ogc.clearRect(0,0,oc.width,oc.height);
+            Ogc.fillRect(num,num,100,100);
+        },30);
+    </script>
+</body>
+</html>

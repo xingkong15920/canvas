@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        canvas{
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="400" height="400">
+        <span>您的浏览器不支持canvas</span>
+    </canvas>
+    <script>
+    //绘制圆
+        //arc(x,y,半径，起始弧度，结束弧度，旋转方向)
+        //--x,y起始坐标
+        //弧度与角度的关系:弧度 = 角度*Math.PI/180;
+        //--旋转方向，顺时针（默认：false）,逆时针（true）
+        var num = 0;
+        var timer;
+        var oc = document.getElementById('c1');
+
+        var Ogc = oc.getContext('2d');
+        //Ogc.moveTo(200,200);
+        Ogc.strokeStyle = 'red';
+        timer = setInterval(function(){
+            Ogc.stroke();
+            num++;
+            console.log(num);
+
+            Ogc.clearRect(0,0,oc.width,oc.height);
+            Ogc.arc(200,200,100,(num*5-90)*Math.PI/180,(num*5+1-90)*Math.PI/180);
+            //console.log(Ogc.arc(200,200,150,0*Math.PI/180,num*Math.PI/180))
+            Ogc.lineWidth = 10;
+            Ogc.stroke();
+            if(num >= 360){
+                clearInterval(timer);
+            };
+        },30)
+        //Ogc.arc(200,200,150,0*Math.PI/180,12*Math.PI/180);
+    </script>
+</body>
+</html>
